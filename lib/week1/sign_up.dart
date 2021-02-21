@@ -113,7 +113,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     color: Colors.white,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/MyBlog');
+                      Navigator.pushNamed(context, '/PageLogin');
                     },
                   ),
                 ),
@@ -127,12 +127,17 @@ class _SignUpState extends State<SignUp> {
                       'Already have an account? ',
                       style: TextStyle(color: Colors.white, fontSize: 16.0),
                     ),
-                    new Text(
-                      'Sign In',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.0,
-                          decoration: TextDecoration.underline),
+                    new GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, "/PageLogin");
+                      },
+                      child: new Text(
+                        'Login',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.0,
+                            decoration: TextDecoration.underline),
+                      ),
                     ),
                   ],
                 ),

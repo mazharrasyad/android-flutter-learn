@@ -1,24 +1,7 @@
 // Referensi : https://medium.com/flutter-developer-indonesia/membuat-aplikasi-form-login-dan-validation-sederhana-pada-flutter-b695a4d5f9d5
 
 import 'package:flutter/material.dart';
-import 'home.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Azhar Task 3',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        errorColor: Colors.yellowAccent,
-      ),
-      home: PageLogin(),
-    );
-  }
-}
+import 'package:udacoding_mentoring_flutter/week1/my_blog.dart';
 
 class PageLogin extends StatelessWidget {
   final myUsernameController = TextEditingController();
@@ -40,9 +23,9 @@ class PageLogin extends StatelessWidget {
               child: new Column(
                 children: <Widget>[
                   new Padding(
-                    padding: new EdgeInsets.only(top: 100.0),
+                    padding: new EdgeInsets.only(top: 80.0),
                   ),
-                  new Text("Udacoding Task 3",
+                  new Text("Udacoding",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 35.0,
@@ -68,7 +51,7 @@ class PageLogin extends StatelessWidget {
                       enabledBorder: new OutlineInputBorder(
                         // width: 0.0 produces a thin "hairline" border
                         borderSide:
-                        new BorderSide(color: Colors.white, width: 2.0),
+                            new BorderSide(color: Colors.white, width: 2.0),
                       ),
                     ),
                   ),
@@ -79,7 +62,7 @@ class PageLogin extends StatelessWidget {
                     validator: (value) {
                       if (value.isEmpty) {
                         return 'Password tidak boleh kosong';
-                      } else if(value.length < 6){
+                      } else if (value.length < 6) {
                         return 'Password tidak boleh kurang dari 6 digit';
                       }
                       return null;
@@ -96,7 +79,7 @@ class PageLogin extends StatelessWidget {
                       enabledBorder: new OutlineInputBorder(
                         // width: 0.0 produces a thin "hairline" border
                         borderSide:
-                        new BorderSide(color: Colors.white, width: 2.0),
+                            new BorderSide(color: Colors.white, width: 2.0),
                       ),
                     ),
                   ),
@@ -113,7 +96,7 @@ class PageLogin extends StatelessWidget {
                       child: new Text(
                         'Login',
                         style:
-                        TextStyle(fontSize: 18.0, color: Colors.blueAccent),
+                            TextStyle(fontSize: 18.0, color: Colors.blueAccent),
                       ),
                       color: Colors.white,
                       onPressed: () {
@@ -151,14 +134,38 @@ class PageLogin extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => PageHome(
-                                      nama: nUsername,
-                                      password: nPassword,
-                                    )));
+                                    builder: (context) => MyBlog(
+                                          nama: nUsername,
+                                          password: nPassword,
+                                        )));
                           }
                         }
                       },
                     ),
+                  ),
+                  new Padding(
+                    padding: new EdgeInsets.only(top: 15.0),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      new Text(
+                        'Don\'t have an account? ',
+                        style: TextStyle(color: Colors.white, fontSize: 16.0),
+                      ),
+                      new GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, "/SignUp");
+                        },
+                        child: new Text(
+                          'Sign Up',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                              decoration: TextDecoration.underline),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 
-class MyBlog extends StatelessWidget {
+class MyBlog extends StatefulWidget {
+  final String nama;
+  final String password;
+
+  //constructor
+
+  MyBlog({Key key, @required this.nama, @required this.password})
+      : super(key: key);
+
+  @override
+  _MyBlogState createState() => _MyBlogState();
+}
+
+class _MyBlogState extends State<MyBlog> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -12,27 +25,45 @@ class MyBlog extends StatelessWidget {
         child: new ListView(
           children: <Widget>[
             new UserAccountsDrawerHeader(
-              accountName: new Text('Muhammad Azhar Rasyad'),
-              accountEmail: new Text('muhazharrasyad@gmail.com'),
+              accountName: new Text('udacodingid'),
+              accountEmail: new Text('udacodingid@gmail.com'),
               currentAccountPicture: new CircleAvatar(
-                child: Text('A', style: TextStyle(color: Colors.white, fontSize: 25.0)),
+                child: Text('U', style: TextStyle(color: Colors.white, fontSize: 25.0)),
               ),
               decoration: new BoxDecoration(
                 color: Color(0xFF20BF06),
               ),
             ),
+            // Halaman Hitung Fisika
             new ListTile(
-              leading: new Icon(Icons.logout),
-              title: new Text('Logout'),
+              leading: new Icon(Icons.calculate),
+              title: new Text('Hitung Fisika'),
               onTap: () {
-                Navigator.pushNamed(context, '/SignUp');
+                Navigator.pushNamed(context, '/PageHitungFisika');
               },
             ),
+            // Halaman Konversi Nilai
+            new ListTile(
+              leading: new Icon(Icons.track_changes),
+              title: new Text('Konversi Nilai'),
+              onTap: () {
+                Navigator.pushNamed(context, '/PageKonversiNilai');
+              },
+            ),
+            // Halaman Payment
             new ListTile(
               leading: new Icon(Icons.payment),
               title: new Text('Payment'),
               onTap: () {
                 Navigator.pushNamed(context, '/Payment');
+              },
+            ),
+            // Halaman Logout
+            new ListTile(
+              leading: new Icon(Icons.logout),
+              title: new Text('Logout'),
+              onTap: () {
+                Navigator.pushNamed(context, '/PageLogin');
               },
             ),
           ],
