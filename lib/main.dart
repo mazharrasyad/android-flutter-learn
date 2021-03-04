@@ -6,6 +6,9 @@ import 'package:udacoding_mentoring_flutter/week1/payment.dart';
 import 'package:udacoding_mentoring_flutter/week2/login.dart';
 import 'package:udacoding_mentoring_flutter/week2/hitung_fisika.dart';
 import 'package:udacoding_mentoring_flutter/week2/konversi_nilai.dart';
+import 'package:udacoding_mentoring_flutter/week3/gallery.dart';
+import 'package:udacoding_mentoring_flutter/week3/kamus.dart';
+import 'package:udacoding_mentoring_flutter/week3/news.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,12 +25,15 @@ class MyApp extends StatelessWidget {
       home: PageLogin(),
       routes: <String, WidgetBuilder>{
         '/SignUp' : (BuildContext context) => SignUp(),
-        '/MyBlog' : (BuildContext context) => MyBlog(),
+        // '/MyBlog' : (BuildContext context) => MyBlog(),
         '/CreatePost' : (BuildContext context) => CreatePost(),
         '/Payment' : (BuildContext context) => Payment(),
         '/PageLogin' : (BuildContext context) => PageLogin(),
         '/PageHitungFisika' : (BuildContext context) => HitungFisika(),
         '/PageKonversiNilai' : (BuildContext context) => KonversiNilai(),
+        '/PageGallery' : (BuildContext context) => Gallery(),
+        '/PageKamus' : (BuildContext context) => Kamus(),
+        '/PageBerita' : (BuildContext context) => Berita(),
       },
     );
   }
