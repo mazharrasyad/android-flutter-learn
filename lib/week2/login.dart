@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:udacoding_mentoring_flutter/week1/my_blog.dart';
+import 'package:udacoding_mentoring_flutter/week4/profile.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
@@ -40,12 +40,9 @@ class _PageLoginState extends State<PageLogin> {
 // get data respon
     String dataFullname = data['name'];
     String dataEmail = data['email'];
-// cek value 1 atau 0
     if (value == 1) {
       setState(() {
-// set status loginnya sebagai login
         _loginStatus = statusLogin.signIn;
-// simpan data ke share preferences
         saveDataPref(value, dataFullname, dataEmail);
       });
     } else if (value == 2) {
@@ -271,7 +268,7 @@ class _PageLoginState extends State<PageLogin> {
         );
         break;
       case statusLogin.signIn:
-        return MyBlog(signOut);
+        return Profile(signOut);
         break;
     }
   }

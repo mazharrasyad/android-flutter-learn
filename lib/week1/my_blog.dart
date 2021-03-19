@@ -3,25 +3,17 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
+import 'package:udacoding_mentoring_flutter/week4/profile.dart';
 
 class MyBlog extends StatefulWidget {
-  final VoidCallback signOut;
-  MyBlog(this.signOut);
-
   @override
   _MyBlogState createState() => _MyBlogState();
 }
 
+enum statusLogin { signIn, notSignIn }
+
 class _MyBlogState extends State<MyBlog> {
-
-  signOut() async{
-    setState(() {
-      widget.signOut();
-    });
-  }
-
-
-//mengambil nilai dari shared preferences
+  statusLogin _loginStatus = statusLogin.notSignIn;
   String fullname = "", email = "";
 
   getDataPref() async {
@@ -37,6 +29,15 @@ class _MyBlogState extends State<MyBlog> {
 // TODO: implement initState
     super.initState();
     getDataPref();
+  }
+
+  signOut() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    setState(() {
+      sharedPreferences.setInt("value", null);
+      sharedPreferences.commit();
+      _loginStatus = statusLogin.notSignIn;
+    });
   }
 
   @override
@@ -110,10 +111,15 @@ class _MyBlogState extends State<MyBlog> {
             ),
             // Halaman Logout
             new ListTile(
-              leading: new Icon(Icons.logout),
-              title: new Text('Logout'),
+              leading: new Icon(Icons.person),
+              title: new Text('Profile'),
               onTap: () {
-                signOut();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) {
+                      return Profile(signOut);
+                    })
+                );
+
               },
             ),
           ],

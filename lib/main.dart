@@ -9,6 +9,9 @@ import 'package:udacoding_mentoring_flutter/week2/konversi_nilai.dart';
 import 'package:udacoding_mentoring_flutter/week3/gallery.dart';
 import 'package:udacoding_mentoring_flutter/week3/kamus.dart';
 import 'package:udacoding_mentoring_flutter/week3/news.dart';
+import 'package:udacoding_mentoring_flutter/week4/onboarding_screen.dart';
+import 'package:udacoding_mentoring_flutter/week4/book.dart';
+import 'package:udacoding_mentoring_flutter/week4/ecommerce.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,10 +25,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         errorColor: Colors.yellowAccent,
       ),
-      home: PageLogin(),
+      home: OnboardingScreen(),
       routes: <String, WidgetBuilder>{
         '/SignUp' : (BuildContext context) => SignUp(),
-        // '/MyBlog' : (BuildContext context) => MyBlog(),
+        '/MyBlog' : (BuildContext context) => MyBlog(),
         '/CreatePost' : (BuildContext context) => CreatePost(),
         '/Payment' : (BuildContext context) => Payment(),
         '/PageLogin' : (BuildContext context) => PageLogin(),
@@ -34,6 +37,8 @@ class MyApp extends StatelessWidget {
         '/PageGallery' : (BuildContext context) => Gallery(),
         '/PageKamus' : (BuildContext context) => Kamus(),
         '/PageBerita' : (BuildContext context) => Berita(),
+        '/Book' : (BuildContext context) => Book(),
+        '/Ecommerce' : (BuildContext context) => Ecommerce(),
       },
     );
   }
